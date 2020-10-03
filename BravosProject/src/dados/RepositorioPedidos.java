@@ -1,5 +1,8 @@
 package dados;
 
 public class RepositorioPedidos {
-teste
+     private int Cliente;
+	
+	
+	
 }
