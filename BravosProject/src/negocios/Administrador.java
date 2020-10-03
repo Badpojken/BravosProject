@@ -1,6 +1,6 @@
 package negocios;
 
-public class Administrador {
+public class Administrador extends Pessoa {
 	
 	
 }
