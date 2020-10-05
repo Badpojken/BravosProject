@@ -68,13 +68,13 @@ public class RepositorioClientes {
 			this.clientes.remove(i);
 			System.out.println("Conta removida.");
 		} else {
-			System.out.println("Conta não encontrada.");
+			System.out.println("Conta não encontrada. Portanto, não foi removida.");
 		}
 		tamanho = this.clientes.size();
 	}
 
 	public String toString() {
-		return "ArrayClientes: "+ clientes;
+		return "Clientes: "+ clientes;
 	}
 
 }
