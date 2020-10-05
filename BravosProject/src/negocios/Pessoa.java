@@ -41,4 +41,9 @@ public class Pessoa {
 		return resultado;
 	}
 
+	public String toString() {
+		return "(Nome: "+ nome +", Endereco: "+endereco+")";
+	}
+	
+
 }
