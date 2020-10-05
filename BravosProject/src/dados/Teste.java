@@ -10,9 +10,6 @@ public class Teste {
 		r.cadastrarCliente("Lenon", "Teste");
 		r.cadastrarCliente("Chagas", "Ponte");
 		System.out.println(r);
-		r.existe("Lenon", "Teste");
-		r.existe("Chagas", "Ponte");
-		r.remover("Chagas", "Ponte");
-		r.existe("Chagas", "Ponte");
+		System.out.println(r.procurar("Lenon", "Teste"));
 	}
 }

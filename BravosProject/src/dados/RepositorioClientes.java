@@ -32,7 +32,10 @@ public class RepositorioClientes {
 		return i;
 	}
 
-	public Cliente procurar(Cliente c) {
+	public Cliente procurar(String n, String e) {
+		Cliente c = new Cliente();
+		c.setNome(n);
+		c.setEndereço(e);
 		int i = this.procurarIndice(c);
 		Cliente resultado = null;
 		if (i != this.clientes.size()) {
