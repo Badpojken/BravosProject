@@ -56,9 +56,7 @@ public class RepositorioClientes {
 		} else {
 			System.out.println("A conta não existe");
 		}
-
 		return existe;
-
 	}
 
 	public void remover(String n, String e) {
@@ -76,7 +74,7 @@ public class RepositorioClientes {
 	}
 
 	public String toString() {
-		return "RepositorioClientes: [Clientes: " + clientes + "]";
+		return "ArrayClientes: "+ clientes;
 	}
 
 }
