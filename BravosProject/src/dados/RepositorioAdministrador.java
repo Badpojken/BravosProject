@@ -3,7 +3,6 @@ package dados;
 import java.util.ArrayList;
 import negocios.Administrador;
 
-
 public class RepositorioAdministrador {
 
 	private ArrayList<Administrador> administrador = new ArrayList<Administrador>();
@@ -20,7 +19,7 @@ public class RepositorioAdministrador {
 		this.administrador.add(admin);
 		tamanho = this.administrador.size();
 	}
-	
+
 	private int procurarIndice(Administrador a) {
 		int i = 0;
 		boolean achou = false;
@@ -33,6 +32,7 @@ public class RepositorioAdministrador {
 		}
 		return i;
 	}
+
 	public Administrador procurar(String n, String e) {
 		Administrador a = new Administrador();
 		a.setNome(n);
@@ -44,6 +44,7 @@ public class RepositorioAdministrador {
 		}
 		return resultado;
 	}
+
 	public boolean existe(String n, String e) {
 		Administrador a = new Administrador();
 		a.setEndereço(e);
@@ -58,6 +59,7 @@ public class RepositorioAdministrador {
 		}
 		return existe;
 	}
+
 	public void remover(String n, String e) {
 		Administrador a = new Administrador();
 		a.setEndereço(e);
@@ -65,14 +67,15 @@ public class RepositorioAdministrador {
 		int i = this.procurarIndice(a);
 		if (i != tamanho) {
 			this.administrador.remove(i);
-			System.out.println("Conta removida.");
+			System.out.println("Administrador removido.");
 		} else {
-			System.out.println("Conta não encontrada. Portanto, não foi removida.");
+			System.out.println("Administrador não encontrado. Portanto, não foi removido.");
 		}
 		tamanho = this.administrador.size();
 	}
+
 	public String toString() {
-		return "Administrador(es): "+ administrador;
+		return "Administrador(es): " + administrador;
 	}
 
 }

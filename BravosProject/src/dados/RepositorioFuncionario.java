@@ -65,9 +65,9 @@ public class RepositorioFuncionario {
 		int i = this.procurarIndice(f);
 		if (i != tamanho) {
 			this.funcionario.remove(i);
-			System.out.println("Conta removida.");
+			System.out.println("Funcionário removido.");
 		} else {
-			System.out.println("Conta não encontrada. Portanto, não foi removida.");
+			System.out.println("Funcionário não encontrado. Portanto, não foi removido.");
 		}
 		tamanho = this.funcionario.size();
 	}

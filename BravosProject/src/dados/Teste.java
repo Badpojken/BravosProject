@@ -8,21 +8,30 @@ public class Teste {
 		r.cadastrarCliente("Lenon", "Teste");
 		r.cadastrarCliente("Chagas", "Ponte");
 		System.out.println(r);
-		System.out.println(r.procurar("Lenon", "Teste"));
+		r.remover("Lenon", "Teste");
+		System.out.println(r.procurar("Lenon", "Teste"));		
 		
+
 		RepositorioAdministrador a = new RepositorioAdministrador();
 		a.cadastrarAdministrador("Lenon", "Ponte");
 		System.out.println(a.procurar("Lenon", "Ponte"));
 		System.out.println(a);
 		a.remover("Lenon", "Ponte");
 		System.out.println(a);
-		
+
 		RepositorioFuncionario f = new RepositorioFuncionario();
 		f.cadastrarFuncionario("Joao", "Casa");
 		System.out.println(f.procurar("Joao", "Casa"));
 		System.out.println(f);
 		f.remover("Joao", "Casa");
 		System.out.println(f);
-		//so um teste msm; ~chagas
+
+		RepositorioProdutos p = new RepositorioProdutos();
+		p.criarProduto(10, "Bravos");
+		p.criarProduto(11, "Khal");
+		p.existe("Bravos");
+		p.existe("Peperrock");
+		System.out.println(p);
+
 	}
 }

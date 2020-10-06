@@ -31,15 +31,15 @@ public class RepositorioClientes {
 		}
 		return i;
 	}
-
-	public Cliente procurar(String n, String e) {
+    //ATUALIZAR DEPOIS
+	public String procurar(String n, String e) {
 		Cliente c = new Cliente();
 		c.setNome(n);
 		c.setEndereço(e);
 		int i = this.procurarIndice(c);
-		Cliente resultado = null;
+		String resultado = "Conta não encontrada.";
 		if (i != this.clientes.size()) {
-			resultado = this.clientes.get(i);
+			resultado = "Conta encontrada.";
 		}
 		return resultado;
 	}
@@ -66,9 +66,9 @@ public class RepositorioClientes {
 		int i = this.procurarIndice(c);
 		if (i != tamanho) {
 			this.clientes.remove(i);
-			System.out.println("Conta removida.");
+			System.out.println("Cliente removido.");
 		} else {
-			System.out.println("Conta não encontrada. Portanto, não foi removida.");
+			System.out.println("Cliente não encontrado. Portanto, não foi removido.");
 		}
 		tamanho = this.clientes.size();
 	}
