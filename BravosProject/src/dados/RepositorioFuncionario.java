@@ -1,7 +1,8 @@
 package dados;
 
 import java.util.ArrayList;
-import negocios.Funcionario;
+
+import negocios.beans.Funcionario;
 
 public class RepositorioFuncionario {
 	private ArrayList<Funcionario> funcionario = new ArrayList<Funcionario>();

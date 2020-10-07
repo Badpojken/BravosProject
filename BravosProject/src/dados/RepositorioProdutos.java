@@ -2,8 +2,7 @@ package dados;
 
 import java.util.ArrayList;
 
-
-import negocios.Produto;
+import negocios.beans.Produto;
 
 public class RepositorioProdutos {
 

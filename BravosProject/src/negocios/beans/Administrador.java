@@ -1,4 +1,4 @@
-package negocios;
+package negocios.beans;
 
 public class Administrador extends Pessoa {
 

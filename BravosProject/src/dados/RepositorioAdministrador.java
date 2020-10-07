@@ -1,7 +1,8 @@
 package dados;
 
 import java.util.ArrayList;
-import negocios.Administrador;
+
+import negocios.beans.Administrador;
 
 public class RepositorioAdministrador {
 

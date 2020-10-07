@@ -1,7 +1,8 @@
 package dados;
 
 import java.util.ArrayList;
-import negocios.Cliente;
+
+import negocios.beans.Cliente;
 
 public class RepositorioClientes {
 
