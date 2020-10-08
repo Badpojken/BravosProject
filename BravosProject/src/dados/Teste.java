@@ -1,5 +1,7 @@
 package dados;
 
+import negocios.beans.*;
+
 public class Teste {
 
 	public static void main(String[] args) {
@@ -32,6 +34,17 @@ public class Teste {
 		p.existe("Bravos");
 		p.existe("Peperrock");
 		System.out.println(p);
+		
+		RepositorioPedidos y = new RepositorioPedidos();
+		Cliente c = new Cliente ("Chagas", "Teste");
+		Funcionario f1 = new Funcionario ("Joao", "Rua");
+		Produto pr1 = new Produto (10, "Batata");
+		Pedido pedido = new Pedido (pr1, 2, pr1.getPreco(), f1, c);
+		pedido.calcPreco();
+		y.addPedido(pedido);
+		System.out.println(y);
+		
+		
 
 	}
 }

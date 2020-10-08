@@ -6,6 +6,7 @@ public class Produto {
 	private String nomeProduto;
 	private String descricaoProduto;
 	private boolean estoque;
+	
 
 	public Produto() {
 

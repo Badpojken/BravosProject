@@ -1,40 +1,48 @@
 package negocios.beans;
 
-import java.util.ArrayList;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-
 public class Pedido {
 
-	private ArrayList<Produto> carrinho = new ArrayList<Produto>();
+	private Cliente clientePedido = new Cliente();
+	private Funcionario funcionario = new Funcionario();
+	private Produto produtoPedido = new Produto();
 	private int quantidade;
-	private double preco = 0.0f;
-	private boolean promocao;
-	private boolean pagamentoDinheiro;
-	private boolean pagamentoCartao;
+	private double preco;
 
-	public double getPreco() {
-		return preco;
+	public Pedido() {
+
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public Pedido(Produto p, int q, double pr, Funcionario f, Cliente c) {
+		this.produtoPedido = p;
+		this.quantidade = q;
+		this.preco = pr;
+		this.funcionario = f;
+		this.clientePedido = c;
+
 	}
 
-	public boolean getPagamentoDinheiro() {
-		return pagamentoDinheiro;
+	public Produto getProdutoPedido() {
+		return produtoPedido;
 	}
 
-	public void setPagamentoDinheiro(boolean pagamentoDinheiro) {
-		this.pagamentoDinheiro = pagamentoDinheiro;
+	public Cliente getClientePedido() {
+		return clientePedido;
 	}
 
-	public boolean getPagamentoCartao() {
-		return pagamentoCartao;
+	public void setClientePedido(Cliente clientePedido) {
+		this.clientePedido = clientePedido;
 	}
 
-	public void setPagamentoCartao(boolean pagamentoCartao) {
-		this.pagamentoCartao = pagamentoCartao;
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public void setProdutoPedido(Produto produtoPedido) {
+		this.produtoPedido = produtoPedido;
 	}
 
 	public int getQuantidade() {
@@ -45,35 +53,31 @@ public class Pedido {
 		this.quantidade = quantidade;
 	}
 
-	public boolean getPromocao() {
-		return promocao;
+	public double getPreco() {
+		return preco;
 	}
 
-	public void setPromocao(boolean promocao) {
-		this.promocao = promocao;
+	public void calcPreco() {
+		double i;
+		i = (produtoPedido.getPreco() * this.quantidade);
+		this.preco = i;
 	}
 
-	public void calcularQuantidade() {
-		this.quantidade = this.carrinho.size();
-	}
-
-	public void addCarrinho(Produto p) {
-		this.carrinho.add(p);
-		this.calcularQuantidade();
-	}
-
-	public void calcularPrecoTotal() {
-		for (int i = 0; i < this.carrinho.size(); i++) {
-			this.setPreco(this.getPreco() + this.carrinho.get(i).getPreco());
+	public boolean equals(Pedido p) {
+		boolean resultado = false;
+		if ((p != null) && (this.getPreco() == p.getPreco()) && (this.getProdutoPedido().equals(p.getProdutoPedido()))
+				&& (this.getQuantidade() == p.getQuantidade()) && this.getClientePedido().equals(p.getClientePedido())
+				&& (this.getFuncionario().equals(p.getFuncionario()))) {
+			resultado = true;
 		}
+		return resultado;
 	}
 
-	public String horarioPedido() {
-		LocalDateTime horaAgora = LocalDateTime.now();
-		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MMMM/YYYY");
-		String resultadoFormatador = formatador.format(horaAgora);
-		return resultadoFormatador + "  " + horaAgora.getHour() + ":" + horaAgora.getMinute() + ":"
-				+ horaAgora.getSecond();
+	public String toString() {
+		return "Pedido [clientePedido=" + clientePedido + ", funcionario=" + funcionario + ", produtoPedido="
+				+ produtoPedido + ", quantidade=" + quantidade + ", preco=" + preco + "]";
 	}
+
+	
 
 }

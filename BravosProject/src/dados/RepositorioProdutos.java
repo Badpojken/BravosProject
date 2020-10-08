@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import negocios.beans.Produto;
 
 public class RepositorioProdutos {
-
+    //DUVIDA EM RELAÇÃO AO ATRIBUTO ARRAYLIST<PRODUTO> SER STATIC OU NÃO. 
 	private ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private int tamanho;
 
