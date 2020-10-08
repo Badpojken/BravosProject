@@ -4,6 +4,8 @@ public class Pessoa {
 
 	private String nome;
 	private String endereco;
+	private String login;
+	private String senha;
 
 	public Pessoa() {
 
@@ -28,6 +30,22 @@ public class Pessoa {
 
 	public void setEndereço(String endereço) {
 		this.endereco = endereço;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public boolean equals(Pessoa p) {
