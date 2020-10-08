@@ -7,6 +7,7 @@ public class Pedido {
 	private Produto produtoPedido = new Produto();
 	private int quantidade;
 	private double preco;
+	private String data; //não fiz os métodos
 
 	public Pedido() {
 

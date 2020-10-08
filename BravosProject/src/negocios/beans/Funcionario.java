@@ -2,7 +2,6 @@ package negocios.beans;
 
 public class Funcionario extends Pessoa {
 
-	private double caixaApurado;
 	
 	public Funcionario() {
 

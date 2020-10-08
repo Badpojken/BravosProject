@@ -6,5 +6,4 @@ public class ControladorVendas {
 	// finalizarCompra, cancelarPedido, adicionarPedido, checarPromocao, calcPrecoTotal,
 	// metodoPagamento, pedidoFinalizar, horarioPedidoPagamento;
 	
-
 }
