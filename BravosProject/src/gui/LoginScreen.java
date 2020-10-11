@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
 public class LoginScreen extends JFrame {
+	//Consegui desbugar!
 
 	private JPanel contentPane;
 	private JTextField textField_1;
