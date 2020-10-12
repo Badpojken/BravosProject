@@ -14,9 +14,7 @@ public class RepositorioAdministrador {
 	}
 
 	public void cadastrarAdministrador(String n, String e) {
-		Administrador admin = new Administrador();
-		admin.setNome(n);
-		admin.setEndereço(e);
+		Administrador admin = new Administrador(n, e);
 		this.administrador.add(admin);
 		tamanho = this.administrador.size();
 	}
@@ -35,9 +33,7 @@ public class RepositorioAdministrador {
 	}
 
 	public Administrador procurar(String n, String e) {
-		Administrador a = new Administrador();
-		a.setNome(n);
-		a.setEndereço(e);
+		Administrador a = new Administrador(n, e);
 		int i = this.procurarIndice(a);
 		Administrador resultado = null;
 		if (i != this.administrador.size()) {
@@ -47,9 +43,7 @@ public class RepositorioAdministrador {
 	}
 
 	public boolean existe(String n, String e) {
-		Administrador a = new Administrador();
-		a.setEndereço(e);
-		a.setNome(n);
+		Administrador a = new Administrador(n, e);
 		boolean existe = false;
 		int indice = this.procurarIndice(a);
 		if (indice != tamanho) {
@@ -62,9 +56,7 @@ public class RepositorioAdministrador {
 	}
 
 	public void remover(String n, String e) {
-		Administrador a = new Administrador();
-		a.setEndereço(e);
-		a.setNome(n);
+		Administrador a = new Administrador(n, e);
 		int i = this.procurarIndice(a);
 		if (i != tamanho) {
 			this.administrador.remove(i);

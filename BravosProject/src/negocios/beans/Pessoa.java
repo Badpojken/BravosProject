@@ -1,11 +1,11 @@
 package negocios.beans;
 
-public class Pessoa {
+public abstract class Pessoa {
 
-	private String nome;
-	private String endereco;
-	private String login;
-	private String senha;
+	protected String nome;
+	protected String endereco;
+	protected String login;
+	protected String senha;
 
 	public Pessoa() {
 
@@ -60,8 +60,7 @@ public class Pessoa {
 	}
 
 	public String toString() {
-		return "(Nome: "+ nome +", Endereco: "+endereco+")";
+		return "(Nome: " + nome + ", Endereco: " + endereco + ")";
 	}
-	
 
 }

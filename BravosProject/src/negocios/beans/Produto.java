@@ -6,15 +6,16 @@ public class Produto {
 	private String nomeProduto;
 	private String descricaoProduto;
 	private boolean estoque;
-	
+	private int quantidade;
 
 	public Produto() {
 
 	}
 
-	public Produto(double p, String np) {
+	public Produto(double p, String np, int pq) {
 		this.preco = p;
 		this.nomeProduto = np;
+		this.quantidade = pq;
 		this.descricaoProduto = null;
 	}
 
@@ -50,8 +51,16 @@ public class Produto {
 		this.estoque = estoque;
 	}
 
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
 	public String toString() {
-		return nomeProduto + "(Preco=" + preco + ")";
+		return nomeProduto + "(Preco=" + preco + ", Quantidade=" + quantidade + ")";
 	}
 
 	public boolean equals(Produto p) {

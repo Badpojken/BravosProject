@@ -13,9 +13,7 @@ public class RepositorioClientes {
 	}
 
 	public void cadastrarCliente(String n, String e) {
-		Cliente cliente = new Cliente();
-		cliente.setNome(n);
-		cliente.setEndereço(e);
+		Cliente cliente = new Cliente(n, e);
 		this.clientes.add(cliente);
 		tamanho = this.clientes.size();
 	}
@@ -34,9 +32,7 @@ public class RepositorioClientes {
 	}
     //ATUALIZAR DEPOIS
 	public String procurar(String n, String e) {
-		Cliente c = new Cliente();
-		c.setNome(n);
-		c.setEndereço(e);
+		Cliente c = new Cliente(n, e);
 		int i = this.procurarIndice(c);
 		String resultado = "Conta não encontrada.";
 		if (i != this.clientes.size()) {
@@ -46,7 +42,7 @@ public class RepositorioClientes {
 	}
 
 	public boolean existe(String n, String e) {
-		Cliente c = new Cliente();
+		Cliente c = new Cliente(n, e);
 		c.setEndereço(e);
 		c.setNome(n);
 		boolean existe = false;
@@ -61,9 +57,7 @@ public class RepositorioClientes {
 	}
 
 	public void remover(String n, String e) {
-		Cliente c = new Cliente();
-		c.setEndereço(e);
-		c.setNome(n);
+		Cliente c = new Cliente(n, e);
 		int i = this.procurarIndice(c);
 		if (i != tamanho) {
 			this.clientes.remove(i);

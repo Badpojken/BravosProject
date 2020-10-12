@@ -13,9 +13,7 @@ public class RepositorioFuncionario {
 	}
 
 	public void cadastrarFuncionario(String n, String e) {
-		Funcionario func = new Funcionario();
-		func.setNome(n);
-		func.setEndereço(e);
+		Funcionario func = new Funcionario(n, e);
 		this.funcionario.add(func);
 		tamanho = this.funcionario.size();
 	}
@@ -34,9 +32,7 @@ public class RepositorioFuncionario {
 	}
 
 	public Funcionario procurar(String n, String e) {
-		Funcionario f = new Funcionario();
-		f.setNome(n);
-		f.setEndereço(e);
+		Funcionario f = new Funcionario(n, e);
 		int i = this.procurarIndice(f);
 		Funcionario resultado = null;
 		if (i != this.funcionario.size()) {
@@ -44,11 +40,9 @@ public class RepositorioFuncionario {
 		}
 		return resultado;
 	}
-	
+
 	public boolean existe(String n, String e) {
-		Funcionario f = new Funcionario();
-		f.setEndereço(e);
-		f.setNome(n);
+		Funcionario f = new Funcionario(n, e);
 		boolean existe = false;
 		int indice = this.procurarIndice(f);
 		if (indice != tamanho) {
@@ -59,10 +53,9 @@ public class RepositorioFuncionario {
 		}
 		return existe;
 	}
+
 	public void remover(String n, String e) {
-		Funcionario f = new Funcionario();
-		f.setEndereço(e);
-		f.setNome(n);
+		Funcionario f = new Funcionario(n, e);
 		int i = this.procurarIndice(f);
 		if (i != tamanho) {
 			this.funcionario.remove(i);
@@ -72,9 +65,9 @@ public class RepositorioFuncionario {
 		}
 		tamanho = this.funcionario.size();
 	}
+
 	public String toString() {
-		return "Funcionario(s): "+ funcionario;
+		return "Funcionario(s): " + funcionario;
 	}
-	
 
 }

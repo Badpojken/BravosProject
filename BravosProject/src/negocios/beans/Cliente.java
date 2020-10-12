@@ -5,11 +5,11 @@ public class Cliente extends Pessoa {
 	private int pontosCliente;
 
 	public Cliente() {
+
 	}
 
 	public Cliente(String n, String e) {
-		this.setNome(n);
-		this.setEndereço(e);
+		super(n, e);
 	}
 
 	public int getPontosCliente() {
