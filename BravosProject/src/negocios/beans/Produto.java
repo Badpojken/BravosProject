@@ -3,6 +3,7 @@ package negocios.beans;
 public class Produto {
 
 	private double preco;
+	private double precoTotal;
 	private String nomeProduto;
 	private String descricaoProduto;
 	private boolean estoque;
@@ -59,14 +60,21 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
+	public double getPrecoTotal() {
+		return precoTotal;
+	}
+	
+	public void setPrecoTotal() {
+		precoTotal = this.preco * this.quantidade;
+	}
+
 	public String toString() {
-		return nomeProduto + "(Preco=" + preco + ", Quantidade=" + quantidade + ")";
+		return nomeProduto + "(Preco=" + preco + ", Quantidade=" + quantidade + ", PrecoTotal="+this.getPrecoTotal()+")";
 	}
 
 	public boolean equals(Produto p) {
 		boolean resultado = false;
-		if ((p != null) && (this.getNomeProduto() == p.getNomeProduto())
-				&& (this.getDescricaoProduto() == p.getDescricaoProduto())) {
+		if ((p != null) && (this.getNomeProduto() == p.getNomeProduto())) {
 			resultado = true;
 		}
 		return resultado;

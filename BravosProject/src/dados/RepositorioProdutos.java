@@ -13,11 +13,8 @@ public class RepositorioProdutos {
 
 	}
 
-	public void criarProduto(double p, String n) {
-		Produto product = new Produto();
-		product.setNomeProduto(n);
-		product.setPreco(p);
-		this.produtos.add(product);
+	public void criarProduto(Produto p) {
+		this.produtos.add(p);
 		tamanho = this.produtos.size();
 
 	}

@@ -13,9 +13,8 @@ public class RepositorioAdministrador {
 
 	}
 
-	public void cadastrarAdministrador(String n, String e) {
-		Administrador admin = new Administrador(n, e);
-		this.administrador.add(admin);
+	public void cadastrarAdministrador(Administrador a) {
+		this.administrador.add(a);
 		tamanho = this.administrador.size();
 	}
 

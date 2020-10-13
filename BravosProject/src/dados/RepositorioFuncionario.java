@@ -12,9 +12,8 @@ public class RepositorioFuncionario {
 
 	}
 
-	public void cadastrarFuncionario(String n, String e) {
-		Funcionario func = new Funcionario(n, e);
-		this.funcionario.add(func);
+	public void cadastrarFuncionario(Funcionario f) {
+		this.funcionario.add(f);
 		tamanho = this.funcionario.size();
 	}
 

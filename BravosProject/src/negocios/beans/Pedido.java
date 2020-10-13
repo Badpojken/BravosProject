@@ -11,6 +11,7 @@ public class Pedido {
 	private Funcionario funcionario = new Funcionario();
 	private ArrayList<Produto> produtoPedido = new ArrayList<Produto>();
 	private double precoFinal;
+	private String dataHorario;
 
 	public Pedido() {
 
@@ -71,17 +72,21 @@ public class Pedido {
 	}
 
 	// Dúvida em relação a dataHorario ser um atributo ou não!
-	public String dataHorarioPedidoFinalizado() {
+	public void dataHorarioPedido() {
 		LocalDateTime horaAgora = LocalDateTime.now();
 		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MMMM/YYYY");
 		String resultadoFormatador = formatador.format(horaAgora);
-		return resultadoFormatador + " " + horaAgora.getHour() + ":" + horaAgora.getMinute() + ":"
+		dataHorario = resultadoFormatador + " " + horaAgora.getHour() + ":" + horaAgora.getMinute() + ":"
 				+ horaAgora.getSecond();
 	}
 
+	public String getDataHorario() {
+		return dataHorario;
+	}
+	
 	public String toString() {
 		return "Pedido [clientePedido=" + clientePedido + ", funcionario=" + funcionario + ", produtoPedido="
-				+ produtoPedido + ", precoFinal=" + precoFinal + "]";
+				+ produtoPedido +", horarioPedido="+this.getDataHorario()+", precoFinal=" + precoFinal + "]";
 	}
 
 }

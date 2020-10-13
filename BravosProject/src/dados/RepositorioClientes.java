@@ -12,9 +12,8 @@ public class RepositorioClientes {
 	public RepositorioClientes() {
 	}
 
-	public void cadastrarCliente(String n, String e) {
-		Cliente cliente = new Cliente(n, e);
-		this.clientes.add(cliente);
+	public void cadastrarCliente(Cliente c) {
+		this.clientes.add(c);
 		tamanho = this.clientes.size();
 	}
 
