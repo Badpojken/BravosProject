@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import negocios.ProdutoQuantidade;
 
 public class Pedido {
 
 	private Cliente clientePedido = new Cliente();
-	private Funcionario funcionario = new Funcionario();
-	private ArrayList<Produto> produtoPedido = new ArrayList<Produto>();
+	ArrayList<ProdutoQuantidade> produtosPedido = new ArrayList<ProdutoQuantidade>();
 	private double precoFinal;
 	private String dataHorario;
 
@@ -17,15 +17,14 @@ public class Pedido {
 
 	}
 
-	public Pedido(ArrayList<Produto> produtosPedido, Funcionario f, Cliente c) {
-		this.produtoPedido = produtosPedido;
-		this.funcionario = f;
+	public Pedido(ArrayList<ProdutoQuantidade> produtosPedido, Cliente c) {
+		this.produtosPedido = produtosPedido;
 		this.clientePedido = c;
 
 	}
 
-	public ArrayList<Produto> getProdutoPedido() {
-		return produtoPedido;
+	public ArrayList<ProdutoQuantidade> getProdutoPedido() {
+		return produtosPedido;
 	}
 
 	public Cliente getClientePedido() {
@@ -36,16 +35,8 @@ public class Pedido {
 		this.clientePedido = clientePedido;
 	}
 
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-
-	public void setProdutoPedido(ArrayList<Produto> produtoPedido) {
-		this.produtoPedido = produtoPedido;
+	public void setProdutoPedido(ArrayList<ProdutoQuantidade> produtoPedido) {
+		this.produtosPedido = produtoPedido;
 	}
 
 	public double getPreco() {
@@ -56,7 +47,7 @@ public class Pedido {
 		double i = 0;
 		int tamanho = this.getProdutoPedido().size();
 		for (int y = 0; y < tamanho; y++) {
-			i = i + this.getProdutoPedido().get(y).getPreco() * this.getProdutoPedido().get(y).getQuantidade();
+			i = i + this.getProdutoPedido().get(y).getPrecoTotal();
 		}
 		this.precoFinal = i;
 	}
@@ -64,8 +55,7 @@ public class Pedido {
 	public boolean equals(Pedido p) {
 		boolean resultado = false;
 		if ((p != null) && (this.getPreco() == p.getPreco()) && (this.getProdutoPedido().equals(p.getProdutoPedido()))
-				&& (this.getClientePedido().equals(p.getClientePedido())
-						&& (this.getFuncionario().equals(p.getFuncionario())))) {
+				&& (this.getClientePedido().equals(p.getClientePedido()))) {
 			resultado = true;
 		}
 		return resultado;
@@ -83,10 +73,10 @@ public class Pedido {
 	public String getDataHorario() {
 		return dataHorario;
 	}
-	
+
 	public String toString() {
-		return "Pedido [clientePedido=" + clientePedido + ", funcionario=" + funcionario + ", produtoPedido="
-				+ produtoPedido +", horarioPedido="+this.getDataHorario()+", precoFinal=" + precoFinal + "]";
+		return "Pedido [clientePedido=" + clientePedido + ", produtoPedido="
+				+ produtosPedido + ", horarioPedido=" + this.getDataHorario() + ", precoFinal=" + precoFinal + "]";
 	}
 
 }
