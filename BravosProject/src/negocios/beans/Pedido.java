@@ -75,8 +75,10 @@ public class Pedido {
 	}
 
 	public String toString() {
-		return "Pedido [clientePedido=" + clientePedido + ", produtoPedido="
-				+ produtosPedido + ", horarioPedido=" + this.getDataHorario() + ", precoFinal=" + precoFinal + "]";
+		return "{\"clientePedido" + ":"+ "\"" + clientePedido + "\"" + "," + "\"produtoPedido\""
+				+ ":" + produtosPedido + "," + "\"horarioPedido\"" + ":" + "\"" + this.getDataHorario() + "\"" + "," + "\"precoFinal\"" + ":"+ "\"" + precoFinal +"\"" + ")";
+		
+	
 	}
 
 }

@@ -2,8 +2,6 @@ package negocios.beans;
 
 import java.util.ArrayList;
 
-import negocios.ProdutoQuantidade;
-
 public class Testando {
 
 	public static void main(String[] args) {

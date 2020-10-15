@@ -69,7 +69,8 @@ public class Cliente {
 	}
 
 	public String toString() {
-		return "(Nome: " + nome + ", Endereco: " + endereco + ")";
+		return "{" + "\"nome\"" +":"+ "\"" + nome + "\"" + "\"endereco\"" + ":" + "\"" + endereco + "\"" + "}";
+		
 	}
 
 }

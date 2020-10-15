@@ -35,7 +35,7 @@ public class ProdutoQuantidade {
 
 	@Override
 	public String toString() {
-		return "produto=" + produto + ", quantidade=" + quantidade + ", precoTotal=" + precoTotal;
+		return "{\"produto\"" + ":" + produto +","+ "\"quantidade\"" + ":" + quantidade + "\"precoTotal\"" + ":" + precoTotal + "}";
 	}
 
 }

@@ -1,6 +1,12 @@
 package dados;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import negocios.beans.Produto;
 
@@ -75,5 +81,51 @@ public class RepositorioProdutos {
 	public String toString() {
 		return "Produtos:" + produtos + "";
 	}
-
+	
+	
+	//métodos relacionados à json 
+	
+	public void salvarEmJson()
+	{
+		FileWriter writer = null;
+		JSONObject jeissom = new JSONObject();
+		jeissom.put("Produtos",this.produtos);
+		try {
+			FileWriter writeFile = new FileWriter("repositorioProdutos.json");
+			writeFile.write(jeissom.toJSONString());
+			writeFile.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void copiandoDoJson()
+	{
+		JSONObject jasao;
+		JSONParser parser = new JSONParser();	
+		try
+		{
+			jasao = (JSONObject)parser.parse(new FileReader("repositorioProdutos.json"));
+			this.produtos.clear();
+			this.produtos.addAll((ArrayList<Produto>) jasao.get("Produtos"));
+				
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch (org.json.simple.parser.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+	
 }
