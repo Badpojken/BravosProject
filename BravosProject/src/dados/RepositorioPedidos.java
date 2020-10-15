@@ -10,7 +10,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import negocios.beans.Pedido;
-import negocios.beans.Produto;
 
 public class RepositorioPedidos {
 
@@ -79,53 +78,46 @@ public class RepositorioPedidos {
 		tamanho = this.listaPedidos.size();
 	}
 
+	
+
+	// métodos relacionados à json
+
+	@Override
 	public String toString() {
 		return "Pedidos:" + listaPedidos;
 	}
-	
-	//métodos relacionados à json 
-	
-		public void salvarEmJson()
-		{
-			FileWriter writer = null;
-			JSONObject jeissom = new JSONObject();
-			jeissom.put("listaPedidos",this.listaPedidos);
-			try {
-				FileWriter writeFile = new FileWriter("repositorioPedidos.json");
-				writeFile.write(jeissom.toJSONString());
-				writeFile.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
+	public void salvarEmJson() {
+		FileWriter writer = null;
+		JSONObject jeissom = new JSONObject();
+		jeissom.put("listaPedidos", this.listaPedidos);
+		try {
+			FileWriter writeFile = new FileWriter("repositorioPedidos.json");
+			writeFile.write(jeissom.toJSONString());
+			writeFile.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		
-		public void copiandoDoJson()
-		{
-			JSONObject jasao;
-			JSONParser parser = new JSONParser();	
-			try
-			{
-				jasao = (JSONObject)parser.parse(new FileReader("repositorioPedidos.json"));
-				this.listaPedidos.clear();
-				this.listaPedidos.addAll((ArrayList<Pedido>) jasao.get("listaPedidos"));
-					
-				
-			}
-			catch(FileNotFoundException e)
-			{
-				e.printStackTrace();
-			}
-			catch(IOException e)
-			{
-				e.printStackTrace();
-			}
-			catch (org.json.simple.parser.ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+	}
+
+	public void copiandoDoJson() {
+		JSONObject jasao;
+		JSONParser parser = new JSONParser();
+		try {
+			jasao = (JSONObject) parser.parse(new FileReader("repositorioPedidos.json"));
+			this.listaPedidos.clear();
+			this.listaPedidos.addAll((ArrayList<Pedido>) jasao.get("listaPedidos"));
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (org.json.simple.parser.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
+
+	}
+
 }

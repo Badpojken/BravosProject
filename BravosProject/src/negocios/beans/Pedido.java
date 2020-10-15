@@ -9,7 +9,7 @@ import negocios.ProdutoQuantidade;
 public class Pedido {
 
 	private Cliente clientePedido = new Cliente();
-	ArrayList<ProdutoQuantidade> produtosPedido = new ArrayList<ProdutoQuantidade>();
+	private ArrayList<ProdutoQuantidade> produtosPedido = new ArrayList<ProdutoQuantidade>();
 	private double precoFinal;
 	private String dataHorario;
 
@@ -75,8 +75,8 @@ public class Pedido {
 	}
 
 	public String toString() {
-		return "{\"clientePedido" + ":"+ "\"" + clientePedido + "\"" + "," + "\"produtoPedido\""
-				+ ":" + produtosPedido + "," + "\"horarioPedido\"" + ":" + "\"" + this.getDataHorario() + "\"" + "," + "\"precoFinal\"" + ":"+ "\"" + precoFinal +"\"" + ")";
+		return "{\"clientePedido\"" + ":" + clientePedido + "," + "\"produtoPedido\""
+				+ ":" + produtosPedido + "," + "\"horarioPedido\"" + ":"  + this.getDataHorario() + "," + "\"precoFinal\"" + ":"+ precoFinal +"}";
 		
 	
 	}

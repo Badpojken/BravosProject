@@ -11,7 +11,7 @@ import org.json.simple.parser.JSONParser;
 import negocios.beans.Produto;
 
 public class RepositorioProdutos {
-    //DUVIDA EM RELAÇÃO AO ATRIBUTO ARRAYLIST<PRODUTO> SER STATIC OU NÃO. 
+	// DUVIDA EM RELAÇÃO AO ATRIBUTO ARRAYLIST<PRODUTO> SER STATIC OU NÃO.
 	private ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private int tamanho;
 
@@ -46,12 +46,12 @@ public class RepositorioProdutos {
 		if (i != this.produtos.size()) {
 			resultado = this.produtos.get(i);
 			System.out.println("Produto encontrado.");
-		}
-		else {
+		} else {
 			System.out.println("Produto não encontrado.");
 		}
 		return resultado;
 	}
+
 	public boolean existe(String n) {
 		Produto product = new Produto();
 		product.setNomeProduto(n);
@@ -65,6 +65,7 @@ public class RepositorioProdutos {
 		}
 		return existe;
 	}
+
 	public void remover(String n) {
 		Produto product = new Produto();
 		product.setNomeProduto(n);
@@ -81,15 +82,13 @@ public class RepositorioProdutos {
 	public String toString() {
 		return "Produtos:" + produtos + "";
 	}
-	
-	
-	//métodos relacionados à json 
-	
-	public void salvarEmJson()
-	{
+
+	// métodos relacionados à json
+
+	public void salvarEmJson() {
 		FileWriter writer = null;
 		JSONObject jeissom = new JSONObject();
-		jeissom.put("Produtos",this.produtos);
+		jeissom.put("Produtos", this.produtos);
 		try {
 			FileWriter writeFile = new FileWriter("repositorioProdutos.json");
 			writeFile.write(jeissom.toJSONString());
@@ -99,33 +98,24 @@ public class RepositorioProdutos {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	public void copiandoDoJson()
-	{
+
+	public void copiandoDoJson() {
 		JSONObject jasao;
-		JSONParser parser = new JSONParser();	
-		try
-		{
-			jasao = (JSONObject)parser.parse(new FileReader("repositorioProdutos.json"));
+		JSONParser parser = new JSONParser();
+		try {
+			jasao = (JSONObject) parser.parse(new FileReader("repositorioProdutos.json"));
 			this.produtos.clear();
 			this.produtos.addAll((ArrayList<Produto>) jasao.get("Produtos"));
-				
-			
-		}
-		catch(FileNotFoundException e)
-		{
+
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}
-		catch(IOException e)
-		{
+		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		catch (org.json.simple.parser.ParseException e) {
+		} catch (org.json.simple.parser.ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
-	
+
 }

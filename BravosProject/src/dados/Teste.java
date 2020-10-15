@@ -1,7 +1,6 @@
 package dados;
 
 import java.util.ArrayList;
-import negocios.*;
 import negocios.ProdutoQuantidade;
 import negocios.beans.*;
 
@@ -32,11 +31,11 @@ public class Teste {
 		
 		
 		RepositorioProdutos bomdia = new RepositorioProdutos();
-		//bomdia.criarProduto(new Produto(10, "bomdia"));
-		//bomdia.criarProduto(new Produto(5, "boanoite"));
-		//bomdia.salvarEmJson();
-		//bomdia.copiandoDoJson();
-		//System.out.println(bomdia);
+		bomdia.criarProduto(new Produto(10, "bomdia"));
+		bomdia.criarProduto(new Produto(5, "boanoite"));
+		bomdia.salvarEmJson();
+		bomdia.copiandoDoJson();
+		System.out.println(bomdia);
 		
 		
 		Produto p = new Produto(10, "batata");
@@ -45,18 +44,33 @@ public class Teste {
 		aPQ.add(pQ);
 		Cliente c = new Cliente("alsdasd", "ASDAS");
 		Pedido p1 = new Pedido(aPQ,c);
-		
 		RepositorioPedidos rP1 = new RepositorioPedidos();
 		rP1.addPedido(p1);
 		rP1.salvarEmJson();
 		rP1.copiandoDoJson();
-		System.out.println(rP1);
+		System.out.println(rP1.toString());
+		/*
 		
-		//RepositorioClientes rC = new RepositorioClientes();
-		//rC.cadastrarCliente(c);
-		//rC.salvarEmJson();
-		//rC.copiandoDoJson();
-		//System.out.println(rC);
+		Produto produto = new Produto(12, "Khal");
+		ProdutoQuantidade pQ1 = new ProdutoQuantidade(produto , 1);
+		ArrayList<ProdutoQuantidade> aPQ1 = new ArrayList<>();
+		aPQ1.add(pQ1);
+		Pedido pedido = new Pedido(aPQ1,c);
+		rP1.addPedido(pedido);
+		rP1.salvarEmJson();
+		rP1.copiandoDoJson();
+		
+		System.out.println(rP1);
+		*/
+		
+		
+		
+		
+		RepositorioClientes rC = new RepositorioClientes();
+		rC.cadastrarCliente(c);
+		rC.salvarEmJson();
+		rC.copiandoDoJson();
+		System.out.println(rC);
 		
 	}
 }

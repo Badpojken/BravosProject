@@ -50,7 +50,7 @@ public class Produto {
 	}
 
 	public String toString() {
-		return "{\"nomeProduto\"" + ":" + "\"" + nomeProduto + "\"" +","+ "\"preco\"" + ":" + preco +","+ "\"descricaoProduto\"" + ":" + "\"" + descricaoProduto + "\"" +","+ "\"estoque\"" + "\"" + estoque + "\"" +"}";                                              
+		return "{\"nomeProduto\"" + ":" + "\"" + nomeProduto + "\"" +","+ "\"preco\"" + ":" + preco +","+ "\"descricaoProduto\"" + ":" + "\"" + descricaoProduto + "\"" +","+ "\"estoque\":" + estoque +"}";                                              
 	}
 
 	public boolean equals(Produto p) {

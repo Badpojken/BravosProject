@@ -69,7 +69,7 @@ public class Cliente {
 	}
 
 	public String toString() {
-		return "{" + "\"nome\"" +":"+ "\"" + nome + "\"" + "\"endereco\"" + ":" + "\"" + endereco + "\"" + "}";
+		return "{" + "\"nome\"" +":"+ "\"" + nome + "\"," + "\"endereco\"" + ":" + "\"" + endereco + "\"" + "}";
 		
 	}
 
