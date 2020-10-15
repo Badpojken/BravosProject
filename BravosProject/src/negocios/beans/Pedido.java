@@ -64,7 +64,7 @@ public class Pedido {
 	// Dúvida em relação a dataHorario ser um atributo ou não!
 	public void dataHorarioPedido() {
 		LocalDateTime horaAgora = LocalDateTime.now();
-		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MMMM/YYYY");
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd-MMMM-YYYY");
 		String resultadoFormatador = formatador.format(horaAgora);
 		dataHorario = resultadoFormatador + " " + horaAgora.getHour() + ":" + horaAgora.getMinute() + ":"
 				+ horaAgora.getSecond();
@@ -76,7 +76,7 @@ public class Pedido {
 
 	public String toString() {
 		return "{\"clientePedido\"" + ":" + clientePedido + "," + "\"produtoPedido\""
-				+ ":" + produtosPedido + "," + "\"horarioPedido\"" + ":"  + this.getDataHorario() + "," + "\"precoFinal\"" + ":"+ precoFinal +"}";
+				+ ":" + produtosPedido + "," + "\"horarioPedido\"" + ":"+ "\"" + this.getDataHorario() + "\""+ "," + "\"precoFinal\"" + ":"+ precoFinal +"}";
 		
 	
 	}

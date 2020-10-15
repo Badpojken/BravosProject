@@ -42,10 +42,15 @@ public class Teste {
 		ProdutoQuantidade pQ = new ProdutoQuantidade(p , 1);
 		ArrayList<ProdutoQuantidade> aPQ = new ArrayList<>();
 		aPQ.add(pQ);
+		pQ.calcPrecoParcial();
+		p.setEstoque(true);
+		p.setDescricaoProduto("Teste");
 		Cliente c = new Cliente("alsdasd", "ASDAS");
 		Pedido p1 = new Pedido(aPQ,c);
 		RepositorioPedidos rP1 = new RepositorioPedidos();
 		rP1.addPedido(p1);
+		p1.dataHorarioPedido();
+		p1.calcPrecoTotal();
 		rP1.salvarEmJson();
 		rP1.copiandoDoJson();
 		System.out.println(rP1.toString());
