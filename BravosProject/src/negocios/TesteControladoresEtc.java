@@ -15,7 +15,7 @@ public class TesteControladoresEtc {
 		ControladorProdutos cp = new ControladorProdutos();
 		cp.cadastrar(p);
 		System.out.println(cp);
-		ProdutoQuantidade pq = new ProdutoQuantidade(cp.procurar("Bravos"), 2);
+		ProdutoQuantidade pq = new ProdutoQuantidade(cp.procurar(p), 2);
 		ProdutoQuantidade pq2 = new ProdutoQuantidade(p2, 2);
 		pq.calcPrecoParcial();
 		pq2.calcPrecoParcial();

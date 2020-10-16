@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import negocios.beans.Cliente;
-import negocios.beans.Pedido;
+
 
 public class RepositorioClientes {
 
@@ -39,8 +39,7 @@ public class RepositorioClientes {
 	}
 
 	// ATUALIZAR DEPOIS
-	public String procurar(String n, String e) {
-		Cliente c = new Cliente(n, e);
+	public String procurar(Cliente c) {
 		int i = this.procurarIndice(c);
 		String resultado = "Conta não encontrada.";
 		if (i != this.clientes.size()) {
@@ -49,10 +48,7 @@ public class RepositorioClientes {
 		return resultado;
 	}
 
-	public boolean existe(String n, String e) {
-		Cliente c = new Cliente(n, e);
-		c.setEndereço(e);
-		c.setNome(n);
+	public boolean existe(Cliente c) {
 		boolean existe = false;
 		int indice = this.procurarIndice(c);
 		if (indice != tamanho) {
@@ -64,8 +60,7 @@ public class RepositorioClientes {
 		return existe;
 	}
 
-	public void remover(String n, String e) {
-		Cliente c = new Cliente(n, e);
+	public void remover(Cliente c) {
 		int i = this.procurarIndice(c);
 		if (i != tamanho) {
 			this.clientes.remove(i);

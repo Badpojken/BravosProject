@@ -38,10 +38,8 @@ public class RepositorioProdutos {
 		return i;
 	}
 
-	public Produto procurar(String n) {
-		Produto product = new Produto();
-		product.setNomeProduto(n);
-		int i = this.procurarIndice(product);
+	public Produto procurar(Produto p) {
+		int i = this.procurarIndice(p);
 		Produto resultado = null;
 		if (i != this.produtos.size()) {
 			resultado = this.produtos.get(i);
@@ -52,11 +50,9 @@ public class RepositorioProdutos {
 		return resultado;
 	}
 
-	public boolean existe(String n) {
-		Produto product = new Produto();
-		product.setNomeProduto(n);
+	public boolean existe(Produto p) {
 		boolean existe = false;
-		int indice = this.procurarIndice(product);
+		int indice = this.procurarIndice(p);
 		if (indice != tamanho) {
 			existe = true;
 			System.out.println("O produto existe");
@@ -66,10 +62,8 @@ public class RepositorioProdutos {
 		return existe;
 	}
 
-	public void remover(String n) {
-		Produto product = new Produto();
-		product.setNomeProduto(n);
-		int i = this.procurarIndice(product);
+	public void remover(Produto p) {
+		int i = this.procurarIndice(p);
 		if (i != tamanho) {
 			this.produtos.remove(i);
 			System.out.println("Produto removido.");

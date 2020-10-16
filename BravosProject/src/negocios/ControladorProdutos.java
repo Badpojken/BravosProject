@@ -13,7 +13,7 @@ public class ControladorProdutos {
 
 	public void cadastrar(Produto p) {
 		if (p != null) {
-			if (!this.repositorioProdutos.existe(p.getNomeProduto())) {
+			if (!this.repositorioProdutos.existe(p)) {
 				this.repositorioProdutos.criarProduto(p);
 				System.out.println("Portanto, criado com sucesso!");
 			} else {
@@ -23,40 +23,40 @@ public class ControladorProdutos {
 		}
 	}
 
-	public void descadastrar(String n) {
-		Produto p = this.repositorioProdutos.procurar(n);
+	public void descadastrar(Produto p) {
+		this.repositorioProdutos.procurar(p);
 		if (p != null) {
-			this.repositorioProdutos.remover(n);
+			this.repositorioProdutos.remover(p);
 		} else {
 
 		}
 
 	}
 
-	public Produto procurar(String n) {
-		return this.repositorioProdutos.procurar(n);
+	public Produto procurar(Produto p) {
+		return this.repositorioProdutos.procurar(p);
 	}
 
-	public boolean existe(String n) {
-		return this.repositorioProdutos.existe(n);
+	public boolean existe(Produto p) {
+		return this.repositorioProdutos.existe(p);
 	}
 
-	public void remover(String n) {
-		this.repositorioProdutos.remover(n);
+	public void remover(Produto p) {
+		this.repositorioProdutos.remover(p);
 	}
 
 	// PARTE DE ADICIONAR MÉTODOS EM RELAÇÃO A ATRIBUTOS DO PRODUTO (COMO SETPREÇO,
 	// GETPREÇO, ETC)...
 
-	public void adicionarDescricao(String n, String d) {
-		Produto p = this.repositorioProdutos.procurar(n);
+	public void adicionarDescricao(Produto p, String d) {
+		this.repositorioProdutos.procurar(p);
 		if (p != null) {
 			p.setDescricaoProduto(d);
 		}
 	}
 
-	public void pausarProduto(String n) {
-		Produto p = this.repositorioProdutos.procurar(n);
+	public void pausarProduto(Produto p) {
+		this.repositorioProdutos.procurar(p);
 		if (p != null && p.temEstoque() == true) {
 			p.setEstoque(false);
 		} else {
@@ -64,9 +64,9 @@ public class ControladorProdutos {
 		}
 	}
 
-	public void despausarProduto(String n) {
+	public void despausarProduto(Produto p) {
 
-		Produto p = this.repositorioProdutos.procurar(n);
+		this.repositorioProdutos.procurar(p);
 		if (p != null && p.temEstoque() == false) {
 			p.setEstoque(true);
 		} else {
