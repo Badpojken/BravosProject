@@ -45,32 +45,10 @@ public class ControladorProdutos {
 		this.repositorioProdutos.remover(p);
 	}
 
-	// PARTE DE ADICIONAR MÉTODOS EM RELAÇÃO A ATRIBUTOS DO PRODUTO (COMO SETPREÇO,
-	// GETPREÇO, ETC)...
-
 	public void adicionarDescricao(Produto p, String d) {
 		this.repositorioProdutos.procurar(p);
 		if (p != null) {
 			p.setDescricaoProduto(d);
-		}
-	}
-
-	public void pausarProduto(Produto p) {
-		this.repositorioProdutos.procurar(p);
-		if (p != null && p.temEstoque() == true) {
-			p.setEstoque(false);
-		} else {
-
-		}
-	}
-
-	public void despausarProduto(Produto p) {
-
-		this.repositorioProdutos.procurar(p);
-		if (p != null && p.temEstoque() == false) {
-			p.setEstoque(true);
-		} else {
-
 		}
 	}
 

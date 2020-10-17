@@ -5,7 +5,6 @@ public class Produto {
 	private double preco;
 	private String nomeProduto;
 	private String descricaoProduto;
-	private boolean estoque;
 
 	public Produto() {
 
@@ -41,16 +40,9 @@ public class Produto {
 		this.descricaoProduto = descricaoProduto;
 	}
 
-	public boolean temEstoque() {
-		return estoque;
-	}
-
-	public void setEstoque(boolean estoque) {
-		this.estoque = estoque;
-	}
 
 	public String toString() {
-		return "{\"nomeProduto\"" + ":" + "\"" + nomeProduto + "\"" +","+ "\"preco\"" + ":" + preco +","+ "\"descricaoProduto\"" + ":" + "\"" + descricaoProduto + "\"" +","+ "\"estoque\":" + estoque +"}";                                              
+		return "{\"nomeProduto\"" + ":" + "\"" + nomeProduto + "\"" +","+ "\"preco\"" + ":" + preco +","+ "\"descricaoProduto\"" + ":" + "\"" + descricaoProduto + "\"" +"}";                                              
 	}
 
 	public boolean equals(Produto p) {

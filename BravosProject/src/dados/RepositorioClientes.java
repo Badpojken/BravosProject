@@ -11,7 +11,6 @@ import org.json.simple.parser.JSONParser;
 
 import negocios.beans.Cliente;
 
-
 public class RepositorioClientes {
 
 	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -39,11 +38,12 @@ public class RepositorioClientes {
 	}
 
 	// ATUALIZAR DEPOIS
-	public String procurar(Cliente c) {
+	public Cliente procurar(Cliente c) {
 		int i = this.procurarIndice(c);
-		String resultado = "Conta não encontrada.";
+		Cliente resultado = null;
 		if (i != this.clientes.size()) {
-			resultado = "Conta encontrada.";
+			resultado = c;
+
 		}
 		return resultado;
 	}
