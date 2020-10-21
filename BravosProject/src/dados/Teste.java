@@ -15,8 +15,6 @@ import negocios.beans.*;
 import java.io.*;
 
 public class Teste {
-	
-	
 
 	public static void main(String[] args) {
 
@@ -38,16 +36,15 @@ public class Teste {
 		obj.put("nome", c.getNome());
 		obj.put("endereco", c.getEndereco());
 		int size = jrr.size();
-		for (int i = 0; i < size ; i++) {
-		   if (jrr.get(i).equals(obj)) {
-			   System.out.println("Cliente já existe!");
-		   }
-		   else if (i == size - 1) {
-			   System.out.println("Adicionado!");
-			   jrr.add(obj);
-		   }
+		for (int i = 0; i < size; i++) {
+			if (jrr.get(i).equals(obj)) {
+				System.out.println("Cliente já existe!");
+			} else if (i == size - 1) {
+				System.out.println("Adicionado!");
+				jrr.add(obj);
+			}
 		}
-		
+
 		try {
 			FileWriter file = new FileWriter("repositorioClientes.json");
 			file.write(jrr.toJSONString());

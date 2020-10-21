@@ -96,7 +96,7 @@ public class Gui extends JFrame {
 					jrr = (JSONArray) ob;
 					file.close();
 				} catch (Exception ex) {
-					JOptionPane.showMessageDialog(null, "Erro ao buscar no repositorio");
+					JOptionPane.showMessageDialog(null, "Ocorreu um erro ao buscar repositorio");
 				}
 
 				JSONObject obj = new JSONObject();
@@ -136,6 +136,7 @@ public class Gui extends JFrame {
 				obj.put("Username", textField.getText());
 				obj.put("Password", textField_1.getText());
 				jrr.add(obj);
+
 				try {
 					FileWriter file = new FileWriter("repositorioLogins.json");
 					file.write(jrr.toJSONString());
