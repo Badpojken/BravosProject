@@ -82,14 +82,18 @@ public class RepositorioClientes {
 		JSONObject jeissom = new JSONObject();
 		jeissom.put("Clientes", this.clientes);
 		try {
+
 			FileWriter writeFile = new FileWriter("repositorioClientes.json");
 			writeFile.write(jeissom.toJSONString());
-			writeFile.close();
+			writeFile.flush();
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
+	
 
 	public void copiandoDoJson() {
 		JSONObject jasao;

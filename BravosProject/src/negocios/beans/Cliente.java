@@ -25,11 +25,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public String getEndereço() {
+	public String getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereço(String endereço) {
+	public void setEndereco(String endereço) {
 		this.endereco = endereço;
 	}
 
@@ -59,7 +59,7 @@ public class Cliente {
 
 	public boolean equals(Cliente p) {
 		boolean resultado = false;
-		if (p != null && p.getEndereço() != null && p.getNome() != null && this.nome.equals(p.nome)
+		if (p != null && p.getEndereco() != null && p.getNome() != null && this.nome.equals(p.nome)
 				&& this.endereco.equals(p.endereco)) {
 			resultado = true;
 		} else {

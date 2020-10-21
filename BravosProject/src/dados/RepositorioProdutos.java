@@ -84,7 +84,7 @@ public class RepositorioProdutos {
 		JSONObject jeissom = new JSONObject();
 		jeissom.put("Produtos", this.produtos);
 		try {
-			FileWriter writeFile = new FileWriter("repositorioProdutos.json");
+			FileWriter writeFile = new FileWriter("repositorioProdutos.json", true);
 			writeFile.write(jeissom.toJSONString());
 			writeFile.close();
 		} catch (IOException e) {

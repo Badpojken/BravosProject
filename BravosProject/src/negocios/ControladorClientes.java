@@ -44,5 +44,18 @@ public class ControladorClientes {
 	public void remover(Cliente c) {
 		this.repositorioClientes.remover(c);
 	}
+	
+	public void salvar() {
+		this.repositorioClientes.salvarEmJson();
+	}
+	
+	public void transformarJson() {
+		this.repositorioClientes.copiandoDoJson();
+	}
+
+	@Override
+	public String toString() {
+		return repositorioClientes.toString();
+	}
 
 }
