@@ -37,14 +37,7 @@ public class RepositorioTest {
 		RepositorioPedidos rp = new RepositorioPedidos();
 		rp.addPedido(pedido);
 		System.out.println(rp);
-		rp.salvarEmJson();
 		System.out.println(rp);
-
-		/*
-		 * RepositorioClientes rc = new RepositorioClientes(); rc.cadastrarCliente(c);
-		 * Cliente c1 = new Cliente("Lenon", "abc"); rc.cadastrarCliente(c1);
-		 * System.out.println(rc.procurar(c1)); System.out.println(rc.procurar(c));
-		 */
 
 	}
 

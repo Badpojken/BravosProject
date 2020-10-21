@@ -75,43 +75,4 @@ public class RepositorioClientes {
 		return "Clientes:" + clientes;
 	}
 
-	// métodos relacionados à json
-
-	public void salvarEmJson() {
-		FileWriter writer = null;
-		JSONObject jeissom = new JSONObject();
-		jeissom.put("Clientes", this.clientes);
-		try {
-
-			FileWriter writeFile = new FileWriter("repositorioClientes.json");
-			writeFile.write(jeissom.toJSONString());
-			writeFile.flush();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	
-
-	public void copiandoDoJson() {
-		JSONObject jasao;
-		JSONParser parser = new JSONParser();
-		try {
-			jasao = (JSONObject) parser.parse(new FileReader("repositorioClientes.json"));
-			this.clientes.clear();
-			this.clientes.addAll((ArrayList<Cliente>) jasao.get("Clientes"));
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (org.json.simple.parser.ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
 }

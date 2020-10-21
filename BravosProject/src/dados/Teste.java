@@ -21,7 +21,7 @@ public class Teste {
 		ControladorClientes cc = new ControladorClientes();
 		Cliente c = new Cliente();
 		c.setNome("Lenon");
-		c.setEndereco("Casa D");
+		c.setEndereco("Casa E");
 		cc.cadastrar(c);
 
 		JSONObject obj = new JSONObject();
@@ -44,7 +44,6 @@ public class Teste {
 				System.out.println("Adicionado!");
 				jrr.add(obj);
 			}
-
 		}
 
 		try {
