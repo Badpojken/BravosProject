@@ -18,10 +18,11 @@ public class Teste {
 
 	public static void main(String[] args) {
 
+		ControladorClientes cc = new ControladorClientes();
 		Cliente c = new Cliente();
-
 		c.setNome("Lenon");
-		c.setEndereco("Casa C");
+		c.setEndereco("Casa D");
+		cc.cadastrar(c);
 
 		JSONObject obj = new JSONObject();
 		JSONArray jrr = new JSONArray();
@@ -33,10 +34,9 @@ public class Teste {
 		} catch (Exception ex) {
 			System.out.println("Ocorreu um erro");
 		}
-		obj.put("nome", c.getNome());
-		obj.put("endereco", c.getEndereco());
+		obj.put("nome", cc.procurar(c).getNome());
+		obj.put("endereco", cc.procurar(c).getEndereco());
 		int size = jrr.size();
-		System.out.println(size);
 		for (int i = 0; i < size; i++) {
 			if (jrr.get(i).equals(obj)) {
 				System.out.println("Cliente já existe!");
@@ -44,7 +44,7 @@ public class Teste {
 				System.out.println("Adicionado!");
 				jrr.add(obj);
 			}
-			
+
 		}
 
 		try {
@@ -54,7 +54,7 @@ public class Teste {
 		} catch (Exception ex) {
 			System.out.println("Ocorreu um erro.");
 		}
-		
+
 		System.out.println("Salvo no repositorio.");
 
 		System.out.println(jrr);
