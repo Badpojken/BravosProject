@@ -135,7 +135,16 @@ public class Gui extends JFrame {
 
 				obj.put("Username", textField.getText());
 				obj.put("Password", textField_1.getText());
-				jrr.add(obj);
+				int size = jrr.size();
+				for (int i = 0; i < size; i++) {
+					if (jrr.get(i).equals(obj)) {
+						JOptionPane.showMessageDialog(null, "Conta já existe.");
+					} else if (i == size - 1) {
+						jrr.add(obj);
+					}
+					
+				}
+			 
 
 				try {
 					FileWriter file = new FileWriter("repositorioLogins.json");
@@ -144,7 +153,18 @@ public class Gui extends JFrame {
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, "Ocorreu um erro.");
 				}
-				JOptionPane.showMessageDialog(null, "Salvo no repositorio.");
+				
+				for (int i = 0; i < size; i++) {
+					if (jrr.get(i).equals(obj)) {
+						
+					} else if (i == size - 1) {
+						JOptionPane.showMessageDialog(null, "Salvo no repositório.");
+						
+					}
+					
+				}
+				
+
 			}
 		});
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
