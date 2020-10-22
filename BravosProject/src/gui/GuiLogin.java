@@ -12,6 +12,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import negocios.ControladorClientes;
+import negocios.beans.Cliente;
+
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -23,11 +26,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.awt.event.ActionEvent;
 
-public class Gui extends JFrame {
-
+public class GuiLogin extends JFrame {
+	ControladorClientes cc = new ControladorClientes();
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+
+	public void ControladorClientes() {
+
+	}
 
 	/**
 	 * Launch the application.
@@ -36,7 +43,8 @@ public class Gui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Gui frame = new Gui();
+					GuiLogin frame = new GuiLogin();
+					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +56,7 @@ public class Gui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Gui() {
+	public GuiLogin() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 578, 402);
@@ -107,7 +115,7 @@ public class Gui extends JFrame {
 				for (int i = 0; i < size; i++) {
 					if (obj.equals(jrr.get(i))) {
 						JOptionPane.showMessageDialog(null, "Logado com sucesso.");
-						break;
+						
 					} else if (i == size - 1) {
 						JOptionPane.showMessageDialog(null, "Dados incorretos.");
 					}
@@ -123,6 +131,14 @@ public class Gui extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cadastrar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				Cliente c = new Cliente();
+				c.setNome("name");
+				c.setEndereco("adress");
+				c.setLogin(textField.getText());
+				c.setSenha(textField_1.getText());
+				cc.cadastrar(c);
+
 				JSONObject obj = new JSONObject();
 				JSONArray jrr = new JSONArray();
 				JSONParser jp = new JSONParser();
@@ -132,19 +148,24 @@ public class Gui extends JFrame {
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, "Ocorreu um erro.");
 				}
-
-				obj.put("Username", textField.getText());
-				obj.put("Password", textField_1.getText());
 				int size = jrr.size();
-				for (int i = 0; i < size; i++) {
-					if (jrr.get(i).equals(obj)) {
-						JOptionPane.showMessageDialog(null, "Conta já existe.");
-					} else if (i == size - 1) {
-						jrr.add(obj);
+				if (size == 0) {
+					obj.put("Username", cc.procurar(c).getLogin());
+					obj.put("Password", cc.procurar(c).getSenha());
+					jrr.add(obj);
+					JOptionPane.showMessageDialog(null, "Conta adicionada.");
+				} else {
+					obj.put("Username", cc.procurar(c).getLogin());
+					obj.put("Password", cc.procurar(c).getSenha());
+					for (int i = 0; i < size; i++) {
+						if (jrr.get(i).equals(obj)) {
+							JOptionPane.showMessageDialog(null, "Conta já existe.");
+						} else if (i == size - 1) {
+							JOptionPane.showMessageDialog(null, "Conta adicionada.");
+							jrr.add(obj);
+						}
 					}
-					
 				}
-			 
 
 				try {
 					FileWriter file = new FileWriter("repositorioLogins.json");
@@ -153,17 +174,19 @@ public class Gui extends JFrame {
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, "Ocorreu um erro.");
 				}
-				
-				for (int i = 0; i < size; i++) {
-					if (jrr.get(i).equals(obj)) {
-						
-					} else if (i == size - 1) {
-						JOptionPane.showMessageDialog(null, "Salvo no repositório.");
-						
+				if (size == 0) {
+
+				} else {
+					for (int i = 0; i < size; i++) {
+						if (jrr.get(i).equals(obj)) {
+
+						} else if (i == size - 1) {
+							JOptionPane.showMessageDialog(null, "Salvo no repositório.");
+
+						}
 					}
-					
+
 				}
-				
 
 			}
 		});

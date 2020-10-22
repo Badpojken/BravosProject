@@ -67,10 +67,22 @@ public class Cliente {
 		}
 		return resultado;
 	}
+	
+	public boolean equalsUsuario(Cliente p) {
+		boolean resultado = false;
+		if (p != null && p.getLogin() != null && p.getSenha() != null && this.senha.equals(p.senha) && this.login.equals(p.login)) {
+			resultado = true;
+		} else {
+			resultado = false;
+		}
+		return resultado;
+	}
 
 	public String toString() {
 		return "{" + "\"nome\"" +":"+ "\"" + nome + "\"," + "\"endereco\"" + ":" + "\"" + endereco + "\"" + "}";
 		
 	}
+	
+
 
 }

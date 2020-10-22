@@ -20,8 +20,8 @@ public class Teste {
 
 		ControladorClientes cc = new ControladorClientes();
 		Cliente c = new Cliente();
-		c.setNome("Lenon");
-		c.setEndereco("Casa E");
+		c.setNome("Chagas");
+		c.setEndereco("Casa D");
 		cc.cadastrar(c);
 
 		JSONObject obj = new JSONObject();
@@ -34,15 +34,21 @@ public class Teste {
 		} catch (Exception ex) {
 			System.out.println("Ocorreu um erro");
 		}
-		obj.put("nome", cc.procurar(c).getNome());
-		obj.put("endereco", cc.procurar(c).getEndereco());
 		int size = jrr.size();
-		for (int i = 0; i < size; i++) {
-			if (jrr.get(i).equals(obj)) {
-				System.out.println("Cliente já existe!");
-			} else if (i == size - 1) {
-				System.out.println("Adicionado!");
-				jrr.add(obj);
+		if (size == 0) {
+			obj.put("nome", cc.procurar(c).getNome());
+			obj.put("endereco", cc.procurar(c).getEndereco());
+			jrr.add(obj);
+		} else {
+			obj.put("nome", cc.procurar(c).getNome());
+			obj.put("endereco", cc.procurar(c).getEndereco());
+			for (int i = 0; i < size; i++) {
+				if (jrr.get(i).equals(obj)) {
+					System.out.println("Cliente já existe!");
+				} else if (i == size - 1) {
+					System.out.println("Adicionado!");
+					jrr.add(obj);
+				}
 			}
 		}
 
