@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -77,4 +79,64 @@ public class RepositorioProdutos {
 		return "Produtos:" + produtos + "";
 	}
 
+	public void salvarEmJson()
+    {
+        FileWriter writer = null;
+        JSONObject jeissom = new JSONObject();
+        jeissom.put("Produtos",this.produtos);
+        try {
+            FileWriter writeFile = new FileWriter("repositorioProdutos.json");
+            writeFile.write(jeissom.toJSONString());
+            writeFile.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+	public void copiandoDoJson()
+    {
+		JSONArray jrr = new JSONArray();
+		Object ob = null;
+		JSONParser Jp = new JSONParser();
+		try {
+			FileReader file = new FileReader("repositorioProdutos.json");
+			ob = Jp.parse(file);
+			jrr = (JSONArray) ob;
+			file.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*JSONObject jasao;
+        JSONParser parser = new JSONParser();
+        try
+        {
+        	
+             jasao = (JSONObject)parser.parse(new FileReader("repositorioProdutos.json"));
+            this.produtos.clear();
+            this.produtos.addAll((ArrayList<Produto>) jasao.get("Produtos"));
+
+        }
+        catch(FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch (org.json.simple.parser.ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } */
+
+    }
 }

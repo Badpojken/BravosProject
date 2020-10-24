@@ -18,6 +18,12 @@ public class Teste {
 
 	public static void main(String[] args) {
 
+		RepositorioProdutos rp = new RepositorioProdutos();
+		
+		rp.copiandoDoJson();
+		System.out.println(rp);
+		
+		
 		JSONArray jrr = new JSONArray();
 		Object ob = null;
 		JSONParser Jp = new JSONParser();

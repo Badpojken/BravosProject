@@ -26,6 +26,8 @@ import java.awt.event.ActionListener;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class GuiLogin extends JFrame {
 	ControladorClientes cc = new ControladorClientes();
@@ -67,29 +69,26 @@ public class GuiLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
-		panel.setBounds(0, 0, 177, 365);
-		contentPane.add(panel);
-
 		textField = new JTextField();
-		textField.setBounds(309, 66, 143, 32);
+		textField.setBounds(384, 66, 143, 32);
 		contentPane.add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JPasswordField();
-		textField_1.setBounds(309, 142, 143, 32);
+		textField_1.setBounds(384, 142, 143, 32);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("Login");
+		JLabel lblNewLabel = new JLabel("Login:");
+		lblNewLabel.setForeground(SystemColor.inactiveCaptionText);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 10));
-		lblNewLabel.setBounds(309, 43, 45, 13);
+		lblNewLabel.setBounds(384, 43, 45, 13);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Senha");
+		JLabel lblNewLabel_1 = new JLabel("Senha:");
+		lblNewLabel_1.setForeground(SystemColor.inactiveCaptionText);
 		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 10));
-		lblNewLabel_1.setBounds(309, 119, 45, 13);
+		lblNewLabel_1.setBounds(384, 119, 45, 13);
 		contentPane.add(lblNewLabel_1);
 
 		JButton btnNewButton = new JButton("Entrar");
@@ -128,7 +127,7 @@ public class GuiLogin extends JFrame {
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(0, 0, 0));
-		btnNewButton.setBounds(340, 196, 85, 21);
+		btnNewButton.setBounds(415, 210, 85, 21);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Cadastrar");
@@ -195,7 +194,7 @@ public class GuiLogin extends JFrame {
 		});
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(340, 239, 85, 21);
+		btnNewButton_1.setBounds(402, 244, 112, 21);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_2 = new JButton("Deletar");
@@ -238,7 +237,18 @@ public class GuiLogin extends JFrame {
 		});
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(0, 0, 0));
-		btnNewButton_2.setBounds(340, 278, 85, 21);
+		btnNewButton_2.setBounds(415, 278, 85, 21);
 		contentPane.add(btnNewButton_2);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.controlText);
+		panel.setBounds(0, 0, 372, 355);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(GuiLogin.class.getResource("/Images/menor 1.png")));
+		lblNewLabel_2.setBounds(0, 0, 381, 355);
+		panel.add(lblNewLabel_2);
 	}
 }

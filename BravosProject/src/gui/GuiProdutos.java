@@ -36,6 +36,7 @@ import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class GuiProdutos extends JFrame {
 	private ArrayList<Produto> produtosArray = new ArrayList<Produto>();
@@ -124,17 +125,17 @@ public class GuiProdutos extends JFrame {
 		setContentPane(contentPane);
 
 		JButton btnNewButton = new JButton("Principal");
-		btnNewButton.setBounds(10, 84, 95, 70);
+		btnNewButton.setBounds(10, 122, 95, 70);
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(0, 0, 0));
 
 		JButton btnCardpio = new JButton("Cardapio");
-		btnCardpio.setBounds(10, 184, 95, 70);
+		btnCardpio.setBounds(10, 222, 95, 70);
 		btnCardpio.setForeground(Color.WHITE);
 		btnCardpio.setBackground(Color.BLACK);
 
 		JButton btnPedidos = new JButton("Pedidos");
-		btnPedidos.setBounds(10, 286, 95, 70);
+		btnPedidos.setBounds(10, 324, 95, 70);
 		btnPedidos.setForeground(Color.WHITE);
 		btnPedidos.setBackground(Color.BLACK);
 
@@ -162,12 +163,13 @@ public class GuiProdutos extends JFrame {
 		textField_1.setBounds(125, 72, 487, 31);
 		panel.add(textField_1);
 
-		JLabel lblNewLabel = new JLabel("BRAVOS");
-		lblNewLabel.setBounds(10, 15, 305, 64);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(GuiProdutos.class.getResource("/Images/menor 2.png")));
+		lblNewLabel.setBounds(10, 13, 123, 96);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 
 		JButton btnGerenciador = new JButton("Produtos");
-		btnGerenciador.setBounds(10, 405, 95, 70);
+		btnGerenciador.setBounds(10, 443, 95, 70);
 		btnGerenciador.setForeground(Color.WHITE);
 		btnGerenciador.setBackground(Color.BLACK);
 
