@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -44,7 +45,7 @@ public class GuiLogin extends JFrame {
 			public void run() {
 				try {
 					GuiLogin frame = new GuiLogin();
-					
+
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -94,6 +95,7 @@ public class GuiLogin extends JFrame {
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				JSONArray jrr = new JSONArray();
 				Object ob = null;
 				JSONParser Jp = new JSONParser();
@@ -115,12 +117,13 @@ public class GuiLogin extends JFrame {
 				for (int i = 0; i < size; i++) {
 					if (obj.equals(jrr.get(i))) {
 						JOptionPane.showMessageDialog(null, "Logado com sucesso.");
-						
-					} else if (i == size - 1) {
+						GuiProdutos guip = new GuiProdutos();
+						guip.setVisible(true);
+
+					} else if (i == size) {
 						JOptionPane.showMessageDialog(null, "Dados incorretos.");
 					}
 				}
-
 			}
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
@@ -214,9 +217,9 @@ public class GuiLogin extends JFrame {
 				int size = jrr.size();
 				obj.put("Username", textField.getText());
 				obj.put("Password", textField_1.getText());
-
 				for (int i = 0; i < size; i++) {
 					if (obj.equals(jrr.get(i))) {
+						System.out.println("1");
 						try {
 							FileWriter file = new FileWriter("repositorioLogins.json");
 							jrr.remove(i);

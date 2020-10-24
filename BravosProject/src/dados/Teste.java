@@ -18,51 +18,45 @@ public class Teste {
 
 	public static void main(String[] args) {
 
-		ControladorClientes cc = new ControladorClientes();
-		Cliente c = new Cliente();
-		c.setNome("Chagas");
-		c.setEndereco("Casa D");
-		cc.cadastrar(c);
-
-		JSONObject obj = new JSONObject();
 		JSONArray jrr = new JSONArray();
-		JSONParser jp = new JSONParser();
-
+		Object ob = null;
+		JSONParser Jp = new JSONParser();
 		try {
-			FileReader file = new FileReader("repositorioClientes.json");
-			jrr = (JSONArray) jp.parse(file);
-		} catch (Exception ex) {
-			System.out.println("Ocorreu um erro");
-		}
-		int size = jrr.size();
-		if (size == 0) {
-			obj.put("nome", cc.procurar(c).getNome());
-			obj.put("endereco", cc.procurar(c).getEndereco());
-			jrr.add(obj);
-		} else {
-			obj.put("nome", cc.procurar(c).getNome());
-			obj.put("endereco", cc.procurar(c).getEndereco());
-			for (int i = 0; i < size; i++) {
-				if (jrr.get(i).equals(obj)) {
-					System.out.println("Cliente já existe!");
-				} else if (i == size - 1) {
-					System.out.println("Adicionado!");
-					jrr.add(obj);
-				}
-			}
-		}
-
-		try {
-			FileWriter file = new FileWriter("repositorioClientes.json");
-			file.write(jrr.toJSONString());
+			FileReader file = new FileReader("repositorioProdutos.json");
+			ob = Jp.parse(file);
+			jrr = (JSONArray) ob;
 			file.close();
 		} catch (Exception ex) {
-			System.out.println("Ocorreu um erro.");
+			JOptionPane.showMessageDialog(null, "Erro ao buscar no repositorio.");
 		}
+		
+		JSONObject jsonProdutos = new JSONObject();
+		jsonProdutos.put("Produtos", jrr);
+		JSONParser produtosParser = new JSONParser();
+		String np = null;
+		String pp = null;
+		try {
 
-		System.out.println("Salvo no repositorio.");
+			JSONObject objProdutos = (JSONObject) produtosParser.parse(jsonProdutos.toJSONString());
+			JSONArray arrayProdutos = (JSONArray) objProdutos.get("Produtos");
+			for (int i = 0; i < jrr.size(); i++) {
+				JSONObject products = (JSONObject) arrayProdutos.get(i);
+				if (products.get("nomeProduto").equals("Khal")) {
+					products.put("nomeProduto", "Chagas");
+					products.put("preco", "10.0");
+					arrayProdutos.add(products);
+					
+				}
+				np = products.get("nomeProduto").toString();
+				pp = products.get("preco").toString();
 
-		System.out.println(jrr);
+				System.out.println(np + "\t" + pp);
+			}
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+
+		}
 
 	}
 

@@ -42,7 +42,7 @@ public class Produto {
 
 
 	public String toString() {
-		return "{\"nomeProduto\"" + ":" + "\"" + nomeProduto + "\"" +","+ "\"preco\"" + ":" + preco +","+ "\"descricaoProduto\"" + ":" + "\"" + descricaoProduto + "\"" +"}";                                              
+		return "{\"nomeProduto\"" + ":" + "\"" + nomeProduto + "\"" +","+ "\"preco\"" + ":" + preco + ","+ "\"descricaoProduto\"" + ":" + "\"" + descricaoProduto + "\"" +"}";                                              
 	}
 
 	public boolean equals(Produto p) {
