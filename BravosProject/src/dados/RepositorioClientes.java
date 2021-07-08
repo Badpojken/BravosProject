@@ -26,6 +26,9 @@ public class RepositorioClientes {
 
 	private int procurarIndice(Cliente c) {
 		int i = 0;
+		
+		///sdfasdfasdfasdfsds
+		
 		boolean achou = false;
 		while ((!achou) && (i < tamanho)) {
 			if (c.equals(this.clientes.get(i))) {
